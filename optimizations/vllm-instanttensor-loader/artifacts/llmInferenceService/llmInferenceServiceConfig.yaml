@@ -1,0 +1,11 @@
+apiVersion: serving.kserve.io/v1alpha1
+kind: LLMInferenceServiceConfig
+metadata:
+  name: qwen35-35b
+spec:
+  model:
+    uri: ''
+  template:
+    containers:
+      - image: 'registry.redhat.io/rhaii/vllm-cuda-rhel9@sha256:5800e12b2a465f15961fcf34b645d79ed4f91ec9161eab22b1205d12682183c8'
+        name: main

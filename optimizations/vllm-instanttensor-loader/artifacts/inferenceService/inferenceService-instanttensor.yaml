@@ -1,0 +1,30 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: qwen35-35b
+spec:
+  predictor:
+    automountServiceAccountToken: false
+    deploymentStrategy:
+      type: Recreate
+    maxReplicas: 1
+    minReplicas: 1
+    model:
+      modelFormat:
+        name: vLLM
+      name: ''
+      args:
+        - '--load-format instanttensor' # Tells vLLM to use instanttensor
+      image: '${IMAGE_REGISTRY}/vllm-cuda-rhel9-instanttensor:latest' # Change for your image registry
+      resources:
+        limits:
+          cpu: '4'
+          memory: 12Gi
+          nvidia.com/gpu: '1'
+        requests:
+          cpu: '4'
+          memory: 12Gi
+          nvidia.com/gpu: '1'
+      runtime: qwen35-35b
+      storageUri: 'pvc://pvc-qwen35-35b'
+    timeout: 30

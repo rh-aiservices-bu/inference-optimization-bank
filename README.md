@@ -1,13 +1,13 @@
-# Inference Optimisations
+# Inference Optimizations
 
-A reference collection of inference optimisation techniques — what each does, what it costs, and how to apply it.
+A reference collection of inference optimization techniques — what each does, what it costs, and how to apply it.
 
 ## Index
 
 | Optimisation | TTFT | Throughput | Load Time | Memory | Complexity |
 |---|---|---|---|---|---|
-| [vLLM PyTorch Compile Cache](optimisations/vllm-torch-compile-cache/) | ✅ Better | ✅ Better | ⚠️ Slower (first run) | ➡️ No change | 🟡 Medium |
-| [vLLM InstantTensor](optimisations/vllm-instanttensor/) | ➡️ No change | ➡️ No change | ✅ Better | ➡️ No change | 🟡 Medium |
+| [vLLM PyTorch Compile Cache](optimisations/vllm-pytorch-compile-cache/) | ➡️ No change | ➡️ No change | ✅ Faster (after first run) | ➡️ No change | 🟢 Low |
+| [vLLM InstantTensor](optimisations/vllm-instanttensor-loader/) | ➡️ No change | ➡️ No change | ✅ Better | ➡️ No change | 🟡 Medium |
 
 ### Key
 
@@ -21,7 +21,7 @@ A reference collection of inference optimisation techniques — what each does, 
 
 ## Categories
 
-These optimisations generally affect one or more of the following:
+These optimizations generally affect one or more of the following:
 
 - **TTFT** — time to first token; how quickly the model starts responding
 - **Throughput** — requests handled per second at a given concurrency

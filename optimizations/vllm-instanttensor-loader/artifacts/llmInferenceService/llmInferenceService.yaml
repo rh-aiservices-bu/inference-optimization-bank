@@ -1,0 +1,28 @@
+apiVersion: serving.kserve.io/v1alpha1
+kind: LLMInferenceService
+metadata:
+  name: qwen35-35b
+  labels:
+    opendatahub.io/dashboard: 'true'
+spec:
+  baseRefs:
+    - name: qwen35-35b
+  model:
+    name: qwen35-35b
+    uri: 'pvc://pvc-qwen35-35b'
+  replicas: 1
+  router:
+    gateway: {}
+    route: {}
+  template:
+    containers:
+      - name: main
+        resources:
+          limits:
+            cpu: '4'
+            memory: 12Gi
+            nvidia.com/gpu: '1'
+          requests:
+            cpu: '4'
+            memory: 12Gi
+            nvidia.com/gpu: '1'

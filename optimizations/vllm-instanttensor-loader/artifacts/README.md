@@ -1,5 +1,6 @@
 # Artifacts
 
+<!--
 Deployment-ready files for this optimisation. Drop anything here that someone would need to actually apply it — don't make them reconstruct it from prose in the README.
 
 ## What belongs here
@@ -13,15 +14,11 @@ Deployment-ready files for this optimisation. Drop anything here that someone wo
 | Scripts | install or benchmark scripts |
 | Config snippets | environment variable blocks, vLLM config fragments |
 
-## Naming convention
+-->
 
-Prefer descriptive names over generic ones:
+## Structure
 
-```
-artifacts/
-├── serving-runtime.yaml          # good
-├── pvc-rwx.yaml                  # good — clarifies access mode
-└── config.yaml                   # too generic — rename it
-```
-
-Add a brief comment at the top of each file explaining any non-obvious values or prerequisites.
+- `inferenceService/` : Directory for storing example OpenShift manifests to deploy a model via InferenceService APIs.
+- `llmInferenceService/` : Directory for storing example OpenShift manifests to deploy a model via LLMInferenceService APIs.
+- `load-model-to-pvc.sh` : Helper script to load models from HuggingFace into a PVC on cluster.
+- `Containerfile` : Containerfile that builds a vLLM container image with instanttensor.  
