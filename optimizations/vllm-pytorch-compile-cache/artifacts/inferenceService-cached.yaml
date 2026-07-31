@@ -1,0 +1,39 @@
+# Updated InferenceService object, with components needed for caching.
+
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  name: qwen35-4b
+spec:
+  predictor:
+    automountServiceAccountToken: false
+    deploymentStrategy:
+      type: RollingUpdate
+    maxReplicas: 1
+    minReplicas: 1
+    model:
+      env:
+        - name: VLLM_CACHE_ROOT  # Tells vLLM where to look for the pytorch cache
+          value: /var/cache/vllm
+      modelFormat:
+        name: vLLM
+      name: ''
+      resources:
+        limits:
+          cpu: '2'
+          memory: 8Gi
+          nvidia.com/gpu: '1'
+        requests:
+          cpu: '2'
+          memory: 8Gi
+          nvidia.com/gpu: '1'
+      runtime: qwen35-4b
+      storageUri: 'hf://Qwen/Qwen3.5-4b'
+      volumeMounts:
+        - mountPath: /var/cache/vllm # Mounts PVC Volume at the VLLM_CACHE_ROOT
+          name: compile-cache
+    timeout: 30
+    volumes:  # Defines a volume using the PVC created.
+      - name: compile-cache
+        persistentVolumeClaim:
+          claimName: model-compilation-cache

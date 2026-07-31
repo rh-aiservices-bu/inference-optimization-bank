@@ -38,21 +38,44 @@ AFTER
 
 ## How to apply
 
+See [`artifacts/`](artifacts/) for ready-to-use manifests and config files.
+
+### Steps
+
 Step-by-step. Call out any environment or storage prerequisites before the steps.
 
 ```bash
 # example config or command
 ```
 
-See [`artifacts/`](artifacts/) for ready-to-use manifests and config files.
+## Test Environment
+
+Explanation of the environment. Call out anything unusual, or non-standard. This is what's consistent between tests, if several tests have been done.
+
+### Platform
+- OpenShift <> on <>
+- RHOAI <>
+- Additional Operator Info (i.e. RHCL, NFD, GPU, if important)
+
+### Model Serving Details (if consistent)
+- [Model link]
+- GPU Info
 
 ## Results
 
-What difference did this make in testing? Include enough environment detail that the numbers are meaningful.
+What difference did this make in testing? If multiple (categories) of tests are done, call out what changes between them.
 
-| Environment | Metric | Before | After | Delta |
-|---|---|---|---|---|
-| [hardware / storage / model] | [e.g. load time] | Xs | Xs | -X% |
+### Test 1
+
+| Metric | Before | After | Delta |
+|---|---|---|---|
+[e.g. load time] | Xs | Xs | -X% |
+
+### Test 2 (delete if N/A)
+
+| Metric | Before | After | Delta |
+|---|---|---|---|
+[e.g. load time] | Xs | Xs | -X% |
 
 ## Further reading
 

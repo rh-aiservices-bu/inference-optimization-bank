@@ -116,7 +116,7 @@ See [`artifacts/`](artifacts/) for ready-to-use manifests and config files.
 
 ### Model Serving Details
 - [Qwen3.5-35B-A3B](https://huggingface.co/Qwen/Qwen3.5-35B-A3B)
-- 2x NVIDIA L40S in a Single Node.
+- 2x NVIDIA L40S (single node)
 
 ## Results
 
