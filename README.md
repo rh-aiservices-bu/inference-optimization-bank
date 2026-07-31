@@ -6,8 +6,8 @@ A reference collection of inference optimization techniques — what each does, 
 
 | Optimisation | TTFT | Throughput | Load Time | Memory | Complexity |
 |---|---|---|---|---|---|
-| [vLLM PyTorch Compile Cache](optimisations/vllm-pytorch-compile-cache/) | ➡️ No change | ➡️ No change | ✅ Faster (after first run) | ➡️ No change | 🟢 Low |
-| [vLLM InstantTensor](optimisations/vllm-instanttensor-loader/) | ➡️ No change | ➡️ No change | ✅ Better | ➡️ No change | 🟡 Medium |
+| [vLLM PyTorch Compile Cache](optimizations/vllm-pytorch-compile-cache/) | ➡️ No change | ➡️ No change | ✅ Faster (after first run) | ➡️ No change | 🟢 Low |
+| [vLLM InstantTensor](optimizations/vllm-instanttensor-loader/) | ➡️ No change | ➡️ No change | ✅ Better | ➡️ No change | 🟡 Medium |
 
 ### Key
 
