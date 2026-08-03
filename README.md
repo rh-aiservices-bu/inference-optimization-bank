@@ -1,31 +1,31 @@
 # Inference Optimizations
 
-A reference collection of inference optimization techniques — what each does, what it costs, and how to apply it.
+A reference collection of inference optimization techniques for vLLM and llm-d. Answering the questions:
 
-## Index
+- What it does?
+- What it benefits?
+- What are the trade offs?
+- How to implement it?
 
-| Optimisation | TTFT | Throughput | Load Time | Memory | Complexity |
-|---|---|---|---|---|---|
-| [vLLM PyTorch Compile Cache](optimizations/vllm-pytorch-compile-cache/) | ➡️ No change | ➡️ No change | ✅ Faster (after first run) | ➡️ No change | 🟢 Low |
-| [vLLM InstantTensor](optimizations/vllm-instanttensor-loader/) | ➡️ No change | ➡️ No change | ✅ Better | ➡️ No change | 🟡 Medium |
+## Technique overview
 
-### Key
+The below table gives an overview of the optimization techniques, including their major benefit, trade off.
 
-| Symbol | Meaning |
-|---|---|
-| ✅ | Improved |
-| ⚠️ | Conditional or trade-off |
-| ➡️ | No meaningful change |
-| ❌ | Worse |
-| 🟢 🟡 🔴 | Complexity: Low / Medium / High |
+The complexity to implement each optimization is also shown, out of:
 
-## Categories
+🟢 - Easy
 
-These optimizations generally affect one or more of the following:
+🟠 - Medium
 
-- **TTFT** — time to first token; how quickly the model starts responding
-- **Throughput** — requests handled per second at a given concurrency
-- **Load time** — how long the server takes to be ready after starting
-- **Memory** — GPU or host memory footprint
+🔴 - Hard
 
-Improving throughput typically increases latency. Trade-offs are called out prominently in each optimisation's README.
+| Optimisation | Benefit | Trade-off | Complexity |
+|---|---|---|---|
+| [vLLM PyTorch Compile Cache](optimizations/vllm-pytorch-compile-cache/) |  Model Load Time | - | 🟢 |
+| [vLLM InstantTensor](optimizations/vllm-instanttensor-loader/) | Model Load Time | - | 🟠 |
+
+## Files
+
+- [Optimizations directory](optimizations/) : Where each optimization technique lives. An indiviudal README explaining the technique is in each directory. 
+- [Templates directory](./templates/) : Contains templates to
+- [optimization-index.csv](./optimization-index.csv) : A CSV containing every optimization, what it benefits, what it hinders and what it doesn't affect. Essentially a more verbose version of the table [above](./README.md#technique-overview).
